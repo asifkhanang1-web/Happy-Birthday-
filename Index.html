@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday! 🎉</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fed6e3 0%, #a8c1ef 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 450px;
+            width: 100%;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        h1 {
+            color: #ff477e;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: bounce 2s infinite;
+        }
+        h2 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .photo-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 5px solid #ff477e;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .music-btn {
+            background-color: #ff477e;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 5px 10px rgba(255, 71, 126, 0.3);
+        }
+        .music-btn:active {
+            transform: scale(0.95);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- 🎉 Birthday Title -->
+        <h1>Happy Birthday! 🎂</h1>
+        <!-- ✍️ Name (Change "Sister" to her real name) -->
+        <h2>Dear [Sister's Name] ✨</h2>
+        
+        <!-- 📸 Photo Section -->
+        <div class="photo-container">
+            <!-- GitHub pe upload ki hui photo ka naam yahan likhein -->
+            <img src="birthday-girl.jpg" alt="Birthday Girl">
+        </div>
+
+        <!-- ✉️ Wish Message -->
+        <p>Wishing you a day filled with laughter, joy, and all your favorite things. May this year bring you endless happiness and success! Keep smiling always! 🌟🥳</p>
+
+        <!-- 🎵 Music Controls -->
+        <!-- GitHub pe upload kiye hue song ka naam yahan likhein -->
+        <audio id="bg-music" src="birthday-song.mp3" loop></audio>
+        <button class="music-btn" onclick="toggleMusic()">🎵 Play Music</button>
+    </div>
+
+    <script>
+        function toggleMusic() {
+            const music = document.getElementById('bg-music');
+            const btn = document.querySelector('.music-btn');
+            
+            if (music.paused) {
+                music.play().catch(error => {
+                    alert("Please interaction allowed kijiye ya link check kijiye!");
+                });
+                btn.innerText = "⏸️ Pause Music";
+                btn.style.backgroundColor = "#4a90e2";
+            } else {
+                music.pause();
+                btn.innerText = "🎵 Play Music";
+                btn.style.backgroundColor = "#ff477e";
+            }
+        }
+    </script>
+
+</body>
+</html>
